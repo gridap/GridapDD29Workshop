@@ -48,11 +48,12 @@ Sys.rm(scripts_dir;recursive=true,force=true)
 Sys.rm(notebooks_sol_dir;recursive=true,force=true)
 Sys.rm(scripts_sol_dir;recursive=true,force=true)
 
-files = readdir(repo_src)
-for file in files
+files = String[]
+for file in readdir(repo_src)
   if splitext(file)[end]!=".jl" || contains(file, "DD29")
     continue
   end
+  push!(files, file)
 
   # Render
   path = joinpath(repo_src, file)
