@@ -28,12 +28,13 @@ for (i,filename) in enumerate(DD29.files)
   is_exercise = startswith(name, "E")
 
   # Generate markdown
+  mdname = replace(filename, ".jl" => ".md")
   function preprocess_docs(content)
     return content
   end
-  Literate.markdown(joinpath(repo_src,filename), pages_dir; name=name, preprocess=preprocess_docs, codefence="```julia" => "```")
+  Literate.markdown(joinpath(repo_src,filename), pages_dir; name=mdname, preprocess=preprocess_docs, codefence="```julia" => "```")
 
-  path = joinpath("pages",string(name,".md"))
+  path = joinpath("pages",mdname)
   if is_exercise
     push!(exercises, (name => path))
   else

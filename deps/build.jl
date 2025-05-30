@@ -50,7 +50,7 @@ Sys.rm(scripts_sol_dir;recursive=true,force=true)
 
 files = readdir(repo_src)
 for file in files
-  if splitext(file)[end]!=".jl" || isequal(file, "DD29.jl")
+  if splitext(file)[end]!=".jl" || contains(file, "DD29")
     continue
   end
 
