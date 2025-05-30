@@ -145,7 +145,7 @@ writevtk(Ω,datadir("poisson"),cellfields=["uh"=>uh])
 
 #  which will generate a file named `poisson_sol.vtu` having a nodal field named `"uh"` containing the solution of our problem (see next figure).
 #
-# ![](../figures/poisson/fig_uh.png)
+# ![](../assets/poisson/fig_uh.png)
 #
 # Additionally, we can compute the L2 error of the numerical solution as follows:
 
@@ -215,7 +215,7 @@ end
 
 # The resulting plot is shown in the next figure: 
 #
-# ![](../figures/poisson/convergence.png)
+# ![](../assets/poisson/convergence.png)
 #
 # ## References
 #

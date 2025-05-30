@@ -125,4 +125,4 @@ createpvd(dir) do pvd
   end
 end
 
-# ![](../figures/poisson_transient/poisson_transient.gif)
+# ![](../assets/poisson_transient/poisson_transient.gif)
