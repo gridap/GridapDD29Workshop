@@ -24,17 +24,17 @@ exercises = Pair{String, String}[]
 tutorials = Pair{String, String}[]
 for (i,filename) in enumerate(DD29.files)
 
+  file = replace(filename, ".jl" => "")
   name = replace(filename, ".jl" => "", "_" => " ")
   is_exercise = startswith(name, "E")
 
   # Generate markdown
-  mdname = replace(filename, ".jl" => ".md")
   function preprocess_docs(content)
     return content
   end
-  Literate.markdown(joinpath(repo_src,filename), pages_dir; name=mdname, preprocess=preprocess_docs, codefence="```julia" => "```")
+  Literate.markdown(joinpath(repo_src,filename), pages_dir; name=file, preprocess=preprocess_docs, codefence="```julia" => "```")
 
-  path = joinpath("pages",mdname)
+  path = joinpath("pages",string(file,".md"))
   if is_exercise
     push!(exercises, (name => path))
   else
@@ -42,8 +42,12 @@ for (i,filename) in enumerate(DD29.files)
   end
 end
 
+readme_path = joinpath(@__DIR__,"..","README.md")
+Sys.cp(readme_path, "src/software_install.md"; force=true)
+
 pages = [
   "Introduction" => "index.md",
+  "Software installation" => "software_install.md",
   "Tutorials" => tutorials,
   "Exercises" => exercises,
 ]
