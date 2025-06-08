@@ -43,7 +43,8 @@ for (i,filename) in enumerate(DD29.files)
 end
 
 readme_path = joinpath(@__DIR__,"..","README.md")
-Sys.cp(readme_path, "src/software_install.md"; force=true)
+software_path = joinpath(@__DIR__,"src","software_install.md")
+Sys.cp(readme_path, software_path; force=true)
 
 pages = [
   "Introduction" => "index.md",
