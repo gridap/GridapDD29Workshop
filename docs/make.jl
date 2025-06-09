@@ -3,6 +3,28 @@ using Literate
 using Printf
 using DD29
 
+function process_hashtag(str, hashtag, fn; striptag=true)
+  hashtag = strip(hashtag)
+  occursin("\r\n", str) && error("""DOS line endings "\r"n" not supported""")
+  out = ""
+  regex = Regex(hashtag)
+  for line in split(str, '\n')
+    line = if occursin(regex, line)
+      fn(striptag ? replace(line, hashtag=>"") : line)
+    else
+      line = line * "\n"
+    end
+    out = out * line
+  end
+  return out
+end
+
+function rm_sol(str)
+  str = process_hashtag(str, "#sol=", line->"")
+  str = process_hashtag(str, "#hint=", line->"#" * line * "\n")
+  return str
+end
+
 repo_src = joinpath(@__DIR__,"..","src")
 pages_dir = joinpath(@__DIR__,"src","pages")
 
@@ -30,6 +52,7 @@ for (i,filename) in enumerate(DD29.files)
 
   # Generate markdown
   function preprocess_docs(content)
+    content = rm_sol(content)
     return content
   end
   Literate.markdown(joinpath(repo_src,filename), pages_dir; name=file, preprocess=preprocess_docs, codefence="```julia" => "```")

@@ -73,25 +73,20 @@ op = TransientFEOperator(res,jac,jac_t,U,V)
 
 op_AD = TransientFEOperator(res,U,V)
 
-# Alternatively, we can exploit the fact that the problem is linear and use the transient Affine FE operator signature `TransientAffineFEOperator`. In that case, we send a form for the mass contribution, $m$, a form for the stiffness contribution, $a$, and the forcing term, $b$.
+# Alternatively, we can exploit the fact that the problem is linear and use the transient Linear FE operator signature `TransientLinearFEOperator`. In that case, we send a form for the mass contribution, $m$, a form for the stiffness contribution, $a$, and the forcing term, $b$.
 
 m(t,u,v) = ∫( u*v )dΩ
 a(t,u,v) = ∫( κ(t)*(∇(u)⋅∇(v)) )dΩ
 b(t,v) = ∫( f(t)*v )dΩ
-op_Af = TransientAffineFEOperator(m,a,b,U,V)
+op_Af = TransientLinearFEOperator((a,m),b,U,V)
 
 # ### Alternative FE operator definitions
 #
-# For time-dependent problems with **constant coefficients**, which is not the case of this tutorial, one could use the optimized operator `TransientConstantMatrixFEOperator`, which assumes that the matrix contributions ($m$ and $a$) are time-independent. That is:
+# For time-dependent problems with **constant coefficients**, which is not the case of this tutorial, one could use the kwarg `constant_forms = (true, true)` to indicate that the matrix contributions ($m$ and $a$) are time-independent. That is:
 
 m₀(u,v) = ∫( u*v )dΩ
 a₀(u,v) = ∫( κ(0.0)*(∇(u)⋅∇(v)) )dΩ
-op_CM = TransientConstantMatrixFEOperator(m₀,a₀,b,U,V)
-
-# Going further, if we had a problem with constant forcing term, i.e. constant force and constant boundary conditions, we could have used the `TransientConstantFEOperator`. In that case the linear form is also time-independent.
-
-b₀(v) = ∫( f(0.0)*v )dΩ
-op_C = TransientConstantFEOperator(m₀,a₀,b₀,U,V)
+op_CM =  TransientLinearFEOperator((a, m), b, U, V, constant_forms=(true, true))
 
 # ## Transient solver
 
