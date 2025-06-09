@@ -11,7 +11,7 @@
 #
 # Formally, the PDE we want to solve is: find the velocity vector $u$ and the pressure $p$ such that
 #
-# $$
+# ```math
 # \left\lbrace
 # \begin{aligned}
 # \frac{\partial u}{\partial t} - \Delta u + \mathit{Re}\ (u\cdot \nabla)\ u + \nabla p = 0 &\text{ in }\Omega,\\
@@ -21,26 +21,26 @@
 # n_\Gamma \cdot \sigma = 0 &\text{ on } \Gamma_{out},\\
 # \end{aligned}
 # \right.
-# $$
+# ```
 #
 # where $d=2$ , and $\mathit{Re}$ is the Reynolds number.
 #
 # The inflow condition is now time-dependent and given by 
 #
-# $$
+# ```math
 # u_{in}(0,y,t) = \left( 4 U_{m} \frac{y(H-y)}{H^2} \xi(t), 0 \right)
-# $$
+# ```
 #
 # with $U_{m}=1.5 \ m/s$ the maximum velocity, $H = 0.41 \ m$ the height of the channel and $\xi$ a function
 #
-# $$
+# ```math
 # \xi(t) = \left\lbrace
 # \begin{aligned}
 #   \sin\left(\frac{\pi t}{2 T_{th}}\right) &\text{ if } t \leq T_{th} \\
 #   1.0 &\text{ if } t > T_{th} \\
 # \end{aligned}
 # \right.
-# $$
+# ```
 # 
 # with $T_{th}$ the time it takes for the flow to reach a steady state.
 #
@@ -48,31 +48,31 @@
 #
 # In order to approximate this problem we choose the same formulation as before, namely a formulation based on inf-sup stable $P_{k}/P_{k-1}$ triangular elements with continuous velocities and pressures. The interpolation spaces are defined as follows. The velocity interpolation space is
 #
-# $$
+# ```math
 # V \doteq \{ v \in [H^1(\Omega)]^d:\ v|_T\in [P_k(T)]^d \text{ for all } T\in\mathcal{T} \},
-# $$
+# ```
 #
 # where $T$ denotes an arbitrary cell of the FE mesh $\mathcal{T}$, and $P_k(T)$ is the usual Lagrangian FE space of order $k$ defined on a mesh of triangles or tetrahedra.
 # On the other hand, the space for the pressure is given by
 #
-# $$
+# ```math
 # Q \doteq \{ q \in C^0(\Omega):\ q|_T\in P_{k-1}(T) \text{ for all } T\in\mathcal{T}\}.
-# $$
+# ```
 #
 # The weak form associated to these interpolation spaces reads: find $(u,p)\in U_g \times Q$ such that $[r(u,p)](v,q)=0$ for all $(v,q)\in V_0 \times Q$
 # where $U_g$ and $V_0$ are the set of functions in $V$ fulfilling the Dirichlet boundary conditions and the homogeneous Dirichlet boundary conditions respectively. The weak residual $r$ evaluated at a given pair $(u,p)$ is the linear form defined as
 #
-# $$
+# ```math
 # [r(t,(u,p))](v,q) \doteq m(t,(u,p),(v,q)) + a(t,(u,p),(v,q)) + [c(u)](v),
-# $$
+# ```
 # with
-# $$
+# ```math
 # \begin{aligned}
 # m(t,(u,p),(v,q)) &\doteq \int_{\Omega} \frac{\partial u}{\partial t} \cdot v \ {\rm d}\Omega,\\
 # a(t,(u,p),(v,q)) &\doteq \int_{\Omega} \nabla v \cdot \nabla u \ {\rm d}\Omega - \int_{\Omega} (\nabla\cdot v) \ p \ {\rm d}\Omega + \int_{\Omega} q \ (\nabla \cdot u) \ {\rm d}\Omega,\\
 # [c(u)](v) &\doteq \int_{\Omega} v 	\cdot \left( (u\cdot\nabla)\ u \right)\ {\rm d}\Omega.\\
 # \end{aligned}
-# $$
+# ```
 #
 # In this exercise, we will rely on automatic differentiation to compute the necessary jacobians in time and space. 
 #

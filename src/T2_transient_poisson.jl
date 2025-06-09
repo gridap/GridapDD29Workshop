@@ -6,7 +6,7 @@
 
 # We solve the heat equation in a 2-dimensional domain $\Omega$, the unit square, with Homogeneous Dirichlet boundaries on the whole boundary $\partial \Omega$. We consider a time-dependent conductivity $\kappa(t)=1.0 + 0.95\sin(2\pi t)$, a time-dependent volumetric forcing term $f(t) = \sin(\pi t)$ and a constant Homogeneous boundary condition $g = 0.0$. The initial solution is $u(x,0) = u_0 = 0$. With these definitions, the strong form of the problem reads:
 
-# $$
+# ```math
 # \left\lbrace
 # \begin{aligned}
 # \frac{\partial u(t)}{\partial t} -\kappa(t)\Delta u(t) = f(t)  \ &\text{ in } \ \Omega,\\
@@ -14,23 +14,23 @@
 # u(0) = 0 \ &\text{ in }\ \Omega\\
 # \end{aligned}
 # \right.
-# $$
+# ```
 
 # The weak form of the problem reads: find $u(t)\in U_g(t)$ such that
 
-# $$
+# ```math
 # m(t,u,v) + a(t,u,v) = b(t,v)\quad \forall v\in \ V
-# $$
+# ```
 
 # Note that $U_t(t)$ is a transient FE space, in the sense that Dirichlet boundary value of functions in $U_t$ _can_ change in time (even though this is not the case in this tutorial). The definition of $m(u,v)$, $a(u,v)$ and $b(v)$ is as follows:
 
-# $$
+# ```math
 # \begin{aligned}
 # m(t,u,v) = \int_\Omega v\frac{\partial u}{\partial t} d\Omega, \\
 # a(t,u,v) = \int_\Omega \kappa(t) \nabla v\cdot \nabla u d\Omega, \\
 # b(t,v) = \int_\Omega v\ f(t) d\Omega
 # \end{aligned}
-# $$
+# ```
 
 # ## Discrete model and Triangulation
 

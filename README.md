@@ -1,10 +1,5 @@
-+++
-title = "Software install instructions and material"
-+++
 
 # GridapDD29Workshop
-
-*Latest update: 27/11/2023*
 
 The practical part of the workshop will consist of instructors' guided hands-on tutorials and exercises. You will find below the instructions to set up the software environment required to run the tutorials.
 
@@ -19,8 +14,7 @@ Before being able to work on the workshop material, you will need to install the
 - Download and install VSCode based on the platform you are using from the [VSCode](https://code.visualstudio.com/download) home page. 
 - [Install](https://www.julia-vscode.org/docs/dev/gettingstarted/#Installing-the-Julia-extension) and [configure](https://www.julia-vscode.org/docs/dev/gettingstarted/#Configuring-the-Julia-extension) the [Julia extension for VSCode](https://code.visualstudio.com/docs/languages/julia). Some interesting features of the Julia extension for VSCode are covered in the following [YouTube](https://www.youtube.com/watch?v=IdhnP00Y1Ks&t=125s) video.
 - Install [ParaView](https://www.paraview.org/download/) post-processing software. We will use the basic features of ParaView. In any case, if you are 
-  keen on learning more,  there is a whole [YouTube channel](https://www.youtube.com/playlist?list=PLvkU6i2iQ2fpcVsqaKXJT5Wjb9_ttRLK-) on ParaView that will give you many more ideas. 
-- Finally, you will need an **ssh** client to connect to Gadi. Generally, every modern OS should have one installed by default. To check if you have one, open a terminal and type `ssh`. If a message like `usage: ssh ...` appears, you are good to go.
+  keen on learning more,  there is a whole [YouTube channel](https://www.youtube.com/playlist?list=PLvkU6i2iQ2fpcVsqaKXJT5Wjb9_ttRLK-) on ParaView that will give you many more ideas.
 
 ## Getting the workshop material
 

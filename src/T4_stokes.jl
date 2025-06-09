@@ -5,7 +5,7 @@
 #
 # Formally, the PDE we want to solve is: find the velocity vector $u$ and the pressure $p$ such that
 #
-# $$
+# ```math
 # \left\lbrace
 # \begin{aligned}
 # - \mathit{Re}\ \Delta u + \nabla p = 0 &\text{ in }\Omega,\\
@@ -13,7 +13,7 @@
 # u = g &\text{ on } \partial\Omega,
 # \end{aligned}
 # \right.
-# $$
+# ```
 #
 # where the computational domain is the unit square $\Omega \doteq (0,1)^d$, $d=2$, and $\mathit{Re}$ is the Reynolds number. In this example, the driving force is the Dirichlet boundary velocity $g$, which is a non-zero horizontal velocity with a value of $g = (1,0)^t$ on the top side of the cavity, namely the boundary $(0,1)\times\{1\}$, and $g=0$ elsewhere on $\partial\Omega$. Since we impose Dirichlet boundary conditions on the entire boundary $\partial\Omega$, the mean value of the pressure is constrained to zero in order have a well posed problem,
 

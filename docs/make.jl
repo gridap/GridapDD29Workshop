@@ -30,6 +30,7 @@ for (i,filename) in enumerate(DD29.files)
 
   # Generate markdown
   function preprocess_docs(content)
+    #content = replace(content, "../assets/" => "assets/")
     return content
   end
   Literate.markdown(joinpath(repo_src,filename), pages_dir; name=file, preprocess=preprocess_docs, codefence="```julia" => "```")
@@ -42,9 +43,9 @@ for (i,filename) in enumerate(DD29.files)
   end
 end
 
-readme_path = joinpath(@__DIR__,"..","README.md")
-software_path = joinpath(@__DIR__,"src","software_install.md")
-Sys.cp(readme_path, software_path; force=true)
+software = read(joinpath(@__DIR__,"..","README.md"), String)
+software = replace(software, "# GridapDD29Workshop" => "# Software installation")
+write(joinpath(@__DIR__,"src","software_install.md"), software)
 
 pages = [
   "Introduction" => "index.md",

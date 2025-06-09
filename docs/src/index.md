@@ -1,6 +1,3 @@
-+++
-title = "Introduction to Gridap: Simulating PDEs using finite elements in Julia"
-+++
 
 # Introduction to Gridap: Simulating PDEs using finite elements in Julia
 
@@ -19,10 +16,10 @@ The workshop will be tutorial-based and will cover the main features of Gridap, 
 
 The emphasis will be mainly on presenting the main software abstractions underlying these packages and how these can be combined to solve a variety of PDEs with application to different problems in science and engineering.  The choice of the PDE systems to be discussed in the workshop will be based on the participant's interests gathered during registration.  
 
-**Participants must bring their own laptops**. Instructions to install the software are available [here](/software_install/). **These should
+**Participants must bring their own laptops**. Instructions to install the software are available in [Software installation](@ref). **These should
 be followed before the actual workshop takes place.**
 
 ## Instructors
 
-* [Prof. Santiago Badia](https://research.monash.edu/en/persons/santiago-badia) - [School of Mathematics](https://www.monash.edu/science/schools/school-of-mathematics), Faculty of Science, Monash University.
-* [Mr. Jordi Manyer](https://github.com/JordiManyer) - [School of Mathematics](https://www.monash.edu/science/schools/school-of-mathematics), Faculty of Science, Monash University.
+* [Prof. Santiago Badia](https://research.monash.edu/en/persons/santiago-badia) - School of Mathematics, Faculty of Science, Monash University.
+* [Mr. Jordi Manyer](https://jordimanyer.deno.dev/) - School of Mathematics, Faculty of Science, Monash University.

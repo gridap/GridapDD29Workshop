@@ -2,7 +2,7 @@
 #
 # The goal of this tutorial is to solve a nonlinear PDE in Gridap. For the sake of simplicity, we consider the $p$-Laplacian equation as the model problem. Specifically, the PDE  we want to solve is: find the scalar-field $u$ such that
 #
-# $$
+# ```math
 # \left\lbrace
 # \begin{aligned}
 # -\nabla \cdot \left( |\nabla u|^{p-2} \ \nabla u \right) = f\ &\text{ in }\ \Omega,\\
@@ -11,7 +11,7 @@
 #  n \cdot \left( |\nabla u|^{p-2}\ \nabla u \right)= 0 \ &\text{ on } \ \Gamma_{\rm N},
 # \end{aligned}
 # \right.
-# $$
+# ```
 # with $p>2$.
 # The computational domain $\Omega$ is the one depicted in next figure. We want to solve the Poisson equation on the 3D domain depicted in next figure with Dirichlet and Neumann boundary conditions. We impose homogeneous Dirichlet and homogeneous Neumann boundary conditions on $\Gamma_0$ and $\Gamma_{\rm N}$  respectively, and inhomogeneous Dirichlet conditions on $\Gamma_g$. The Dirichlet boundaries $\Gamma_0$ and $\Gamma_g$ are defined as the closure of the green and blue surfaces in next figure respectively, whereas the Neumann boundary is $\Gamma_{\rm N}\doteq\partial\Omega \setminus (\Gamma_0\cup\Gamma_g)$. In this example, we consider the values $p=3$, $f=1$, and $g=2$.
 #
@@ -21,15 +21,15 @@
 #
 # We discretize the problem with conforming Lagrangian FE spaces. For this formulation, the nonlinear weak form reads: find $u\in U_g$ such that $[r(u)](v) = 0$ for all $v\in V_0$. As in previous tutorials, the space $U_g$ is the set of functions in $H^1(\Omega)$ that fulfill the Dirichlet boundary conditions, whereas $V_0$ is composed by functions in $H^1(\Omega)$ that vanish at the Dirichlet boundary. The weak residual $r(u)$ evaluated at a function  $u\in U_g$ is the linear form defined as
 #
-# $$
+# ```math
 # [r(u)](v) \doteq \int_\Omega \nabla v \cdot \left( |\nabla u|^{p-2}\ \nabla u \right) \ {\rm d}\Omega - \int_\Omega v\ f \ {\rm d}\Omega.
-# $$
+# ```
 #
 # In order to solve this nonlinear weak equation, we consider a Newton-Raphson method, which is associated with a linearization of the problem in an arbitrary direction $\delta u\in V_0$, namely $[r(u+\delta u)](v)\approx [r(u)](v) + [j(u)](\delta u,v)$. In previous formula,  $j(u)$ is the Jacobian evaluated at $u\in U_g$, which is the bilinear form
 #
-# $$
+# ```math
 # [j(u)](\delta u,v) = \int_\Omega \nabla v \cdot \left( |\nabla u|^{p-2}\ \nabla \delta u \right) \ {\rm d}\Omega + (p-2) \int_\Omega \nabla v \cdot \left(  |\nabla u|^{p-4} (\nabla u \cdot \nabla \delta u) \nabla u  \right) \ {\rm d}\Omega.
-# $$
+# ```
 #
 # Note that the solution of this nonlinear PDE with a Newton-Raphson method, will require to discretize both the residual $r$ and the Jacobian $j$. In Gridap, this is done by following an approach similar to the one already shown in previous tutorials for discretizing the bilinear and linear forms associated with a linear FE problem. The specific details are discussed now.
 #
