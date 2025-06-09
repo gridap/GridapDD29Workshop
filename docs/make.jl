@@ -55,7 +55,17 @@ for (i,filename) in enumerate(DD29.files)
     content = rm_sol(content)
     return content
   end
-  Literate.markdown(joinpath(repo_src,filename), pages_dir; name=file, preprocess=preprocess_docs, codefence="```julia" => "```")
+  function postprocess_docs(content)
+    content = replace(content, raw"$" => raw"\$")
+    return content
+  end
+  Literate.markdown(
+    joinpath(repo_src,filename), pages_dir; 
+    name=file, 
+    preprocess=preprocess_docs,
+    # postprocess=postprocess_docs,
+    codefence="```julia" => "```"
+  )
 
   path = joinpath("pages",string(file,".md"))
   if is_exercise
