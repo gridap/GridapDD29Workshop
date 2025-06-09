@@ -1,0 +1,22 @@
+name: CI
+on:
+  - push
+  - pull_request
+  - create
+jobs:
+  test:
+    name: Test drivers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.10'
+      - uses: julia-actions/cache@v2
+      - uses: julia-actions/julia-buildpkg@v1
+      - run: |
+          julia --color=yes --project=. --check-bounds=yes --depwarn=error -e '
+            using Pkg; Pkg.instantiate(); Pkg.build()'
+      - run: |
+          julia --color=yes --project=. --check-bounds=yes --depwarn=error -e '
+            include("test/runtests.jl")'

@@ -15,6 +15,7 @@ Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
 PartitionedArrays = "5a9dfac6-5c52-46f7-8278-5e2210713be9"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
 DrWatson = "2.18.0"
@@ -28,3 +29,4 @@ Literate = "2.20.1"
 PartitionedArrays = "0.3.4"
 Plots = "1.40.13"
 Printf = "1"
+Test = "1.11.0"
