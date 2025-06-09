@@ -30,7 +30,6 @@ for (i,filename) in enumerate(DD29.files)
 
   # Generate markdown
   function preprocess_docs(content)
-    #content = replace(content, "../assets/" => "assets/")
     return content
   end
   Literate.markdown(joinpath(repo_src,filename), pages_dir; name=file, preprocess=preprocess_docs, codefence="```julia" => "```")
