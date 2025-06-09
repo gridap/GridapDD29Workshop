@@ -198,7 +198,7 @@ xₕₜ = solve(ode_solver,op,t₀,T,u₀)
 dir = datadir("ins_transient")
 !isdir(dir) && mkdir(dir)
 createpvd(dir) do pvd
-  for (xₕ,t) in xₕₜ
+  for (t,xₕ) in xₕₜ
     println(" > Computing solution at time $t")
     uₕ,pₕ = xₕ
     file = dir*"/solution_$t"*".vtu"

@@ -119,7 +119,7 @@ uₕₜ = solve(ode_solver,op,t₀,T,u₀)
 dir = datadir("poisson_transient_solution")
 !isdir(dir) && mkdir(dir)
 createpvd(dir) do pvd
-  for (uₕ,t) in uₕₜ
+  for (t,uₕ) in uₕₜ
     file = dir*"/solution_$t"*".vtu"
     pvd[t] = createvtk(Ω,file,cellfields=["u"=>uₕ])
   end
