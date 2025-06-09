@@ -107,10 +107,10 @@ ode_solver = ThetaMethod(linear_solver,Δt,θ)
 
 # Finally, we define the solution using the `solve` function, giving the ODE solver, the FE operator, an initial solution, an initial time and a final time. To construct the initial condition we interpolate the initial value (in that case a constant value of 0.0) into the FE space $U(t)$ at $t=0.0$.
 
-u₀ = interpolate_everywhere(0.0,U(0.0))
 t₀ = 0.0
 T = 10.0
-uₕₜ = solve(ode_solver,op,u₀,t₀,T)
+u₀ = interpolate_everywhere(0.0,U(0.0))
+uₕₜ = solve(ode_solver,op,t₀,T,u₀)
 
 # ## Postprocessing
 
