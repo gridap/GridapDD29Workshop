@@ -190,10 +190,10 @@ nls = NLSolver(show_trace=true, method=:newton, linesearch=BackTracking())
 
 # We can then solve the problem and print the solutions as follows: 
 
-u₀ = interpolate_everywhere([VectorValue(0.0,0.0),0.0],X(0.0))
 t₀ = 0.0
 T  = Tth
-xₕₜ = solve(ode_solver,op,u₀,t₀,T)
+u₀ = interpolate_everywhere([VectorValue(0.0,0.0),0.0],X(0.0))
+xₕₜ = solve(ode_solver,op,t₀,T,u₀)
 
 dir = datadir("ins_transient")
 !isdir(dir) && mkdir(dir)
