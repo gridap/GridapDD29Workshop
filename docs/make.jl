@@ -93,5 +93,6 @@ makedocs(
 )
 
 deploydocs(
-  repo = "github.com/gridap/GridapDD29Workshop.git"
+  repo = "github.com/gridap/GridapDD29Workshop.git",
+  devbranch = "main",
 )
