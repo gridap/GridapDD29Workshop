@@ -67,7 +67,7 @@ f(t) = sin(π*t)
 res(t,u,v) = ∫( ∂t(u)*v + κ(t)*(∇(u)⋅∇(v)) - f(t)*v )dΩ
 jac(t,u,du,v) = ∫( κ(t)*(∇(du)⋅∇(v)) )dΩ
 jac_t(t,u,duₜ,v) = ∫( duₜ*v )dΩ
-op = TransientFEOperator(res,jac,jac_t,U,V)
+op_NL = TransientFEOperator(res,jac,jac_t,U,V)
 
 # We can also take advantage of automatic differentiation techniques to compute both Jacobians and use the `TransientFEOperator` function sending just the residual.
 
@@ -105,7 +105,7 @@ ode_solver = ThetaMethod(linear_solver,Δt,θ)
 t₀ = 0.0
 T = 10.0
 u₀ = interpolate_everywhere(0.0,U(0.0))
-uₕₜ = solve(ode_solver,op,t₀,T,u₀)
+uₕₜ = solve(ode_solver,op_CM,t₀,T,u₀)
 
 # ## Postprocessing
 
