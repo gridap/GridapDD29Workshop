@@ -1,7 +1,7 @@
 using Documenter
 using Literate
 using Printf
-using DD29
+using GridapDD29Workshop
 
 function process_hashtag(str, hashtag, fn; striptag=true)
   hashtag = strip(hashtag)
@@ -44,7 +44,7 @@ Sys.cp(assets_src,assets_dst)
 # Add index.md file as introduction to navigation menu
 exercises = Pair{String, String}[]
 tutorials = Pair{String, String}[]
-for (i,filename) in enumerate(DD29.files)
+for (i,filename) in enumerate(GridapDD29Workshop.files)
 
   file = replace(filename, ".jl" => "")
   name = replace(filename, ".jl" => "", "_" => " ")
@@ -101,4 +101,5 @@ makedocs(
 deploydocs(
   repo = "github.com/gridap/GridapDD29Workshop.git",
   devbranch = "main",
+  push_preview = true
 )

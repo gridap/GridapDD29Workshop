@@ -55,9 +55,9 @@ julia --project=.
 Then, press `]` to enter the package manager and run
 
 ```julia
-(DD29) pkg> instantiate
-(DD29) pkg> update
-(DD29) pkg> build
+(GridapDD29Workshop) pkg> instantiate
+(GridapDD29Workshop) pkg> update
+(GridapDD29Workshop) pkg> build
 ```
 
 to install and precompile all the packages needed for the workshop. This may take a while.
@@ -73,7 +73,7 @@ More information on Julia Environments can be found [here](https://pkgdocs.julia
 ## Setting up the environment on your local computer with VSCode
 
 1. Open VSCode. Then, on the top menu, select `File->Open Folder`, and select the workshop's material folder you just cloned.
-2. Ensure that the Julia environment in the bottom status bar of VSCode is `DD29`. Click [here](https://www.julia-vscode.org/docs/dev/userguide/env/#Julia-Environments) for instructions on how to do that.
+2. Ensure that the Julia environment in the bottom status bar of VSCode is `GridapDD29Workshop`. Click [here](https://www.julia-vscode.org/docs/dev/userguide/env/#Julia-Environments) for instructions on how to do that.
 3. Open the Julia REPL in VSCode. To this end, open the command palette with the keyboard key combination `Crtl+Shift+P`.
 4. On the command palette, type `"julia"`. You should get a drop-down list with different options. Select `Julia: Start REPL` option. This should open the Julia REPL on the VSCode's terminal window at the bottom.
 5. Run the `instantiate` package manager command as described in the previous section.

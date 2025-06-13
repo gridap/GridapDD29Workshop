@@ -50,7 +50,7 @@ Sys.rm(scripts_sol_dir;recursive=true,force=true)
 
 files = String[]
 for file in readdir(repo_src)
-  if splitext(file)[end]!=".jl" || contains(file, "DD29")
+  if splitext(file)[end]!=".jl" || contains(file, "GridapDD29Workshop")
     continue
   end
   push!(files, file)
