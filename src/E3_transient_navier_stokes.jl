@@ -81,7 +81,7 @@
 # 
 # ### Exercise 1
 # 
-# _By using the code in the previous exercise, load the mesh from the file `perforated_plate_tiny.msh`. If your computer is good enough, or if you are working on Gadi, you might want to try the refined model in file `perforated_plate.msh`._ 
+# _By using the code in the previous exercise, load the mesh from the file `perforated_plate_tiny.msh`. If your computer is good enough, or if you have access to a cluster, you might want to try the refined model in file `perforated_plate.msh`._ 
 
 using Gridap, GridapGmsh
 using DrWatson

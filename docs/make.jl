@@ -82,8 +82,8 @@ write(joinpath(@__DIR__,"src","software_install.md"), software)
 pages = [
   "Introduction" => "index.md",
   "Software installation" => "software_install.md",
-  "Tutorials" => tutorials,
-  "Exercises" => exercises,
+#  "Tutorials" => tutorials,
+#  "Exercises" => exercises,
 ]
 
 makedocs(
@@ -94,7 +94,8 @@ makedocs(
         edit_link = "main",
         assets = String[],
     ),
-  pages = pages
+  pages = pages,
+  clean = true,
 )
 
 deploydocs(
