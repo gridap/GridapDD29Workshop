@@ -35,11 +35,12 @@ assets_src = joinpath(@__DIR__,"..","assets")
 assets_dst = joinpath(@__DIR__,"src","assets")
 
 Sys.rm(pages_dir;recursive=true,force=true)
-Sys.rm(models_dst;recursive=true,force=true)
-Sys.rm(assets_dst;recursive=true,force=true)
 
-Sys.cp(models_src,models_dst)
+Sys.rm(assets_dst;recursive=true,force=true)
 Sys.cp(assets_src,assets_dst)
+
+#Sys.rm(models_dst;recursive=true,force=true)
+#Sys.cp(models_src,models_dst)
 
 # Add index.md file as introduction to navigation menu
 exercises = Pair{String, String}[]
@@ -82,8 +83,9 @@ write(joinpath(@__DIR__,"src","software_install.md"), software)
 pages = [
   "Introduction" => "index.md",
   "Software installation" => "software_install.md",
-#  "Tutorials" => tutorials,
-#  "Exercises" => exercises,
+  "Tutorials" => tutorials,
+  "Exercises" => exercises,
+  "Going further" => "going_further.md",
 ]
 
 makedocs(

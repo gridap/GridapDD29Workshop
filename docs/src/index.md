@@ -12,7 +12,7 @@ This short workshop will showcase the main features of [Gridap](https://github.c
 
 Gridap has a very expressive user interface, allowing one to solve complex PDE systems by stating the problem using whiteboard notation. It implements multiple state-of-the-art finite element methods that can efficiently exploit large-scale HPC supercomputers.
 
-The workshop will be tutorial-based and will cover the main features of Gridap, its application to several problems, and its deployment in distributed memory machines.
+The workshop will be tutorial-based and will cover the main features of Gridap and its application to several problems.
 
 The emphasis will be mainly on presenting the main software abstractions underlying these packages and how these can be combined to solve a variety of PDEs with application to different problems in science and engineering.  The choice of the PDE systems to be discussed in the workshop will be based on the participant's interests gathered during registration.  
 
