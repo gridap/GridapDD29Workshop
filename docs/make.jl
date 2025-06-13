@@ -89,11 +89,11 @@ pages = [
 makedocs(
   sitename = "Gridap DD29 Workshop",
   format = Documenter.HTML(;
-        prettyurls = get(ENV, "CI", "false") == "true",
-        canonical = "https://gridap.github.io/GridapDD29Workshop/",
-        edit_link = "main",
-        assets = String[],
-    ),
+    prettyurls = get(ENV, "CI", "false") == "true",
+    canonical = "https://gridap.github.io/GridapDD29Workshop/",
+    edit_link = "main",
+    assets = String[],
+  ),
   pages = pages,
   clean = true,
 )
